@@ -21,10 +21,7 @@ namespace Player
         protected override void Awake()
         {
             base.Awake();
-            //massTypes.Add(0.5f);
             massTypes.Add(3f);
-            //massTypes.Add(10f);
-            //massPosition = 1;
             radius = transform.localScale.x / 2;
         }
 
