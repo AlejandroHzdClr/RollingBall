@@ -11045,8 +11045,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player.PlayerMain
   <GroundPoundForce>k__BackingField: 25
-  <MovementForce>k__BackingField: 25
-  <JumpForce>k__BackingField: 25
+  <MovementForce>k__BackingField: 10
+  <JumpForce>k__BackingField: 15
   <WindPower>k__BackingField: 10
   <FollowCamera>k__BackingField: {fileID: 582562450}
   <Camera2D>k__BackingField: {fileID: 238899360}

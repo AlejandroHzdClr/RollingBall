@@ -10,7 +10,7 @@ namespace Environmet
         public void AddingMass(List<float> massList)
         {
             massList.Add(mass);
-            Destroy(this.gameObject);
+            Destroy(gameObject);
         }
     }
 }

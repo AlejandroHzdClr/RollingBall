@@ -14,6 +14,7 @@ namespace Player
         private Vector3 movementDirection;
         private List<float> massTypes = new List<float>();
         private int massPosition;
+        private float radius;
     
         // Start is called once before the first execution of Update after the MonoBehaviour is created
 
@@ -24,6 +25,7 @@ namespace Player
             massTypes.Add(3f);
             //massTypes.Add(10f);
             //massPosition = 1;
+            radius = transform.localScale.x / 2;
         }
 
         // Update is called once per frame
@@ -42,7 +44,15 @@ namespace Player
 
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                main.Rb.AddForce(Vector3.up * main.JumpForce, ForceMode.Impulse);
+                if (Physics.Raycast(transform.position, Vector3.down,radius + 0.1f))
+                {
+                    Debug.Log("Puede saltar, tiene debajo algo");
+                    main.Rb.AddForce(Vector3.up * main.JumpForce, ForceMode.Impulse);
+                }
+                else
+                {
+                    Debug.Log("No puede saltar");
+                }
             }
 
             ChangeMass();
