@@ -46,12 +46,8 @@ namespace Player
             {
                 if (Physics.Raycast(transform.position, Vector3.down,radius + 0.1f))
                 {
-                    Debug.Log("Puede saltar, tiene debajo algo");
+                    //Debug.Log("Puede saltar, tiene debajo algo");
                     main.Rb.AddForce(Vector3.up * main.JumpForce, ForceMode.Impulse);
-                }
-                else
-                {
-                    Debug.Log("No puede saltar");
                 }
             }
 
