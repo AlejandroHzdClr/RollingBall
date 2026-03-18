@@ -7,6 +7,7 @@ TagManager:
   - WindTower
   - DestroyWall
   - ChangeCamera
+  - PowerUp
   layers:
   - Default
   - TransparentFX

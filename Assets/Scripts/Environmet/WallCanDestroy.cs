@@ -2,23 +2,8 @@ using UnityEngine;
 
 public class WallCanDestroy : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public void Interact()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    public void DestroyWall(Rigidbody other)
-    {
-        if (other.mass >= 5)
-        {
-            Destroy(this);
-        }
+        Destroy(this.gameObject);
     }
 }
