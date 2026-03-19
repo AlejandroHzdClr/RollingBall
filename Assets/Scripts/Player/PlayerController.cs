@@ -14,6 +14,7 @@ namespace Player
         private List<float> massTypes = new List<float>();
         private int massPosition;
         private float radius;
+        private float currentRadius;
     
         // Start is called once before the first execution of Update after the MonoBehaviour is created
 
@@ -29,24 +30,27 @@ namespace Player
         {
             float hInput = Input.GetAxisRaw("Horizontal");
             float vInput = Input.GetAxisRaw("Vertical");
-            if (main.Is2D)
+            if (Mathf.Approximately(main.Rb.mass, 3f))
             {
-                movementDirection = new Vector3(0,0, hInput).normalized;
-            }
-            else
-            {
-                movementDirection = new Vector3(hInput,0, vInput).normalized;
-            }
-
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                if (Physics.Raycast(transform.position, Vector3.down,radius + 0.1f))
+                if (main.Is2D)
                 {
-                    //Debug.Log("Puede saltar, tiene debajo algo");
-                    main.Rb.AddForce(Vector3.up * main.JumpForce, ForceMode.Impulse);
+                    movementDirection = new Vector3(0,0, hInput).normalized;
+                }
+                else
+                {
+                    movementDirection = new Vector3(hInput,0, vInput).normalized;
+                }
+
+                if (Input.GetKeyDown(KeyCode.Space))
+                {
+                    if (Physics.Raycast(transform.position, Vector3.down,radius + 0.1f))
+                    {
+                        //Debug.Log("Puede saltar, tiene debajo algo");
+                        main.Rb.AddForce(Vector3.up * main.JumpForce, ForceMode.Impulse);
+                    }
                 }
             }
-
+            
             ChangeMass();
         }
 
@@ -97,10 +101,12 @@ namespace Player
 
             if (other.CompareTag("PowerUp"))
             {
+                currentRadius = radius;
                 MassAdder adder = other.GetComponent<MassAdder>();
                 adder.AddingMass(massTypes);
                 
                 massTypes.Sort();
+                main.Rb.mass = currentRadius;
             }
         }
     }
