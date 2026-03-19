@@ -8,6 +8,7 @@ TagManager:
   - DestroyWall
   - ChangeCamera
   - PowerUp
+  - Sign
   layers:
   - Default
   - TransparentFX

@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Numerics;
 using Environmet;
-using Player;
 using UnityEngine;
 using Vector3 = UnityEngine.Vector3;
 
@@ -99,15 +98,7 @@ namespace Player
             if (other.CompareTag("PowerUp"))
             {
                 MassAdder adder = other.GetComponent<MassAdder>();
-
-                if (massTypes.Contains(0.5f))
-                {
-                    adder.AddingMass(massTypes);
-                }
-                else
-                {
-                    adder.AddingMass(massTypes);
-                }
+                adder.AddingMass(massTypes);
                 
                 massTypes.Sort();
             }

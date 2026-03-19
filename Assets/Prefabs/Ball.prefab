@@ -13,7 +13,11 @@ GameObject:
   - component: {fileID: 8738533503234648710}
   - component: {fileID: 4257212635316998342}
   - component: {fileID: 6395246027017914724}
+  - component: {fileID: 7993689660111423758}
+  - component: {fileID: 3780584539580515142}
+  - component: {fileID: 3003622672719872298}
   - component: {fileID: 6154694863876255189}
+  - component: {fileID: 2311000700744415315}
   m_Layer: 0
   m_Name: Ball
   m_TagString: Untagged
@@ -31,7 +35,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 7.03, y: 2.59, z: 2.68}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 4.9899898, y: 4.9899898, z: 4.9899898}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -138,9 +142,52 @@ Rigidbody:
   m_ImplicitTensor: 1
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &7993689660111423758
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9136562014416147434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fae75b00d847495f8df7e5ad33be1193, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Player.PlayerMain
+  <GroundPoundForce>k__BackingField: 25
+  <MovementForce>k__BackingField: 25
+  <JumpForce>k__BackingField: 25
+  <WindPower>k__BackingField: 10
+  <FollowCamera>k__BackingField: {fileID: 0}
+  <Camera2D>k__BackingField: {fileID: 0}
+--- !u!114 &3780584539580515142
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9136562014416147434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b2435dbf00a4570b6da6d77a54ebc11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Player.PlayerSystem
+--- !u!114 &3003622672719872298
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9136562014416147434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15967437a35b80a488fecdb3cfe97b36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CameraController
+  jump2DForce: 55
 --- !u!114 &6154694863876255189
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -153,6 +200,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4175e4a16b2846344a27bcdfd894f5b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
-  movementForce: 25
-  jumpForce: 15
-  windPower: 10
+--- !u!114 &2311000700744415315
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9136562014416147434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb651563b0cb1f94aa12ae57bf41d73f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MassController
