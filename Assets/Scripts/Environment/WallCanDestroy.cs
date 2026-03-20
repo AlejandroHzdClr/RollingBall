@@ -4,6 +4,6 @@ public class WallCanDestroy : MonoBehaviour
 {
     public void Interact()
     {
-        Destroy(this.gameObject);
+        gameObject.SetActive(this.gameObject);
     }
 }

@@ -5,7 +5,7 @@ public class UnlockNewEnv : MonoBehaviour
 {
     [SerializeField] private GameObject unlockThisThing;
 
-    private void OnDestroy()
+    private void OnDisable()
     {
         unlockThisThing.SetActive(true);
     }
