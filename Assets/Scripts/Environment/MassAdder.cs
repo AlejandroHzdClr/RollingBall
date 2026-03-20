@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Environmet
+namespace Environment
 {
     public class MassAdder : MonoBehaviour
     {

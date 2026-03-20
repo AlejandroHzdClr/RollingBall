@@ -14,6 +14,8 @@ namespace Player
         [field: SerializeField] public GameObject Camera2D { get; private set; }
 
         public float OriginalJumpForce { get; private set; }
+        public int Points { get; set; }
+        public bool CanMove { get; set; }
         
         
         public Rigidbody Rb { get; private set; }

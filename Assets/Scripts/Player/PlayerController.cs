@@ -1,5 +1,6 @@
 using System.Collections.Generic;
-using Environmet;
+using Environment;
+using Environment;
 using Unity.VisualScripting;
 using UnityEngine;
 using Vector3 = UnityEngine.Vector3;
@@ -133,7 +134,7 @@ namespace Player
         {
             if (other.CompareTag("WindTower"))
             {
-                main.Rb.AddForce(Vector3.up * main.WindPower,ForceMode.Force);
+                main.Rb.AddForce(other.transform.up * main.WindPower,ForceMode.Force);
             }
         }
 
