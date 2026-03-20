@@ -8,8 +8,12 @@ namespace Environment
         [SerializeField] private int pointNum;
         private void OnTriggerEnter(Collider other)
         {
-            main.Points += pointNum;
-            Destroy(this);
+            if (other.CompareTag("Player"))
+            {
+                PlayerMain player = other.GetComponent<PlayerMain>();
+                player.Points += pointNum;
+                Destroy(gameObject);
+            }
         }
     }
 }

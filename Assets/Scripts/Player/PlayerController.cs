@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using Environment;
-using Environment;
 using Unity.VisualScripting;
 using UnityEngine;
 using Vector3 = UnityEngine.Vector3;
