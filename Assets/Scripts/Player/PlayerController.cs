@@ -30,7 +30,7 @@ namespace Player
             base.Awake();
             //massTypes.Add(0.5f);
             massTypes.Add(3f);
-            massTypes.Add(10f);
+            //.Add(10f);
             radius = transform.localScale.x / 2;
             rend = GetComponent<MeshRenderer>();
             baseColor = rend.material.color;
