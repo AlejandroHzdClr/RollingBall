@@ -12,10 +12,11 @@ namespace Environment
 
         private void Update()
         {
-            if (playerInside && Input.GetKeyDown(KeyCode.E))
+            if (playerInside && Input.GetKeyDown(KeyCode.F))
             {
                 signActive = !signActive;
                 information.SetActive(signActive);
+                texto.SetActive(!signActive);
                 Debug.Log("Ha interactuado");
             }
         }
