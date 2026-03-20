@@ -8,6 +8,7 @@ namespace Player
 {
     public class PlayerController : PlayerSystem
     {
+        
         private Vector3 movementDirection;
         private List<float> massTypes = new List<float>();
         private int massPosition;
@@ -22,18 +23,20 @@ namespace Player
         private MeshRenderer rend;
         private Color baseColor;
         
+        private AudioSource audioComp;
     
         // Start is called once before the first execution of Update after the MonoBehaviour is created
 
         protected override void Awake()
         {
             base.Awake();
-            massTypes.Add(0.5f);
+            //massTypes.Add(0.5f);
             massTypes.Add(3f);
             massTypes.Add(10f);
             radius = transform.localScale.x / 2;
             rend = GetComponent<MeshRenderer>();
             baseColor = rend.material.color;
+            audioComp = GetComponent<AudioSource>();
         }
 
         // Update is called once per frame
@@ -71,6 +74,7 @@ namespace Player
             {
                 main.Rb.AddForce(lastDirection * charge, ForceMode.Impulse);
                 charge = 0f;
+                audioComp.Play();
 
                 rend.material.color = baseColor;
             }
@@ -143,7 +147,16 @@ namespace Player
             {
                 if (main.Rb.mass >= 5)
                 {
-                    Destroy(other.gameObject);
+                    WallCanDestroy wall = other.gameObject.GetComponent<WallCanDestroy>();
+                    AudioSource soundWall = wall.GetComponent<AudioSource>();
+                    
+                    //Todo esto rompe la pared, pero a la vez sonando el sonido
+                    soundWall.Play();
+                    foreach (var col in other.GetComponentsInChildren<Collider>())
+                        col.enabled = false;
+                    foreach (var mesh in other.GetComponentsInChildren<MeshRenderer>())
+                        mesh.enabled = false;
+                    Destroy(other.gameObject, soundWall.clip.length);
                 }
             }
 

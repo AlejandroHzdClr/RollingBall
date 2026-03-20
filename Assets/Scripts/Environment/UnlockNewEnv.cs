@@ -1,12 +1,14 @@
-using System;
 using UnityEngine;
 
-public class UnlockNewEnv : MonoBehaviour
+namespace Environment
 {
-    [SerializeField] private GameObject unlockThisThing;
-
-    private void OnDisable()
+    public class UnlockNewEnv : MonoBehaviour
     {
-        unlockThisThing.SetActive(true);
+        [SerializeField] private GameObject unlockThisThing;
+
+        private void OnDisable()
+        {
+            unlockThisThing.SetActive(true);
+        }
     }
 }

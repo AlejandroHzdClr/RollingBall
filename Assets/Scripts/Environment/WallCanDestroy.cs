@@ -1,9 +1,14 @@
 using UnityEngine;
 
-public class WallCanDestroy : MonoBehaviour
+namespace Environment
 {
-    public void Interact()
+    public class WallCanDestroy : MonoBehaviour
     {
-        gameObject.SetActive(this.gameObject);
+        private AudioSource audioComp;
+
+        private void Awake()
+        {
+            audioComp = GetComponent<AudioSource>();
+        }
     }
 }
