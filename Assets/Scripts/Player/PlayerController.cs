@@ -37,6 +37,7 @@ namespace Player
             rend = GetComponent<MeshRenderer>();
             baseColor = rend.material.color;
             audioComp = GetComponent<AudioSource>();
+            main.CanMove = true;
         }
 
         // Update is called once per frame
@@ -46,17 +47,20 @@ namespace Player
             float vInput = Input.GetAxisRaw("Vertical");
             Vector3 inputDir = new Vector3(hInput, 0, vInput).normalized;
             bool isPressingWasd = inputDir != Vector3.zero;
-            if (Mathf.Approximately(main.Rb.mass, 3f))
+            if (main.CanMove)
             {
-                MovingBall(hInput, vInput);
-            }
+                if (Mathf.Approximately(main.Rb.mass, 3f))
+                {
+                    MovingBall(hInput, vInput);
+                }
 
-            if (Mathf.Approximately(main.Rb.mass, 10f))
-            {
-                ImpulseBall(isPressingWasd, inputDir);
+                if (Mathf.Approximately(main.Rb.mass, 10f))
+                {
+                    ImpulseBall(isPressingWasd, inputDir);
+                }
+                
+                ChangeMass();
             }
-            
-            ChangeMass();
         }
 
         private void ImpulseBall(bool isPressingWasd, Vector3 inputDir)

@@ -15,12 +15,13 @@ namespace Player
 
         public float OriginalJumpForce { get; private set; }
         public int Points { get; set; }
-        public bool CanMove { get; set; }
+        public float TimePlayed { get; private set; }
         
         
         public Rigidbody Rb { get; private set; }
         public bool Is2D { get; set; }
-
+        public bool CanMove { get; set; }
+        
         private void Awake()
         {
             Rb = GetComponent<Rigidbody>();
@@ -30,6 +31,14 @@ namespace Player
         public void ChangeJump(float newJumpForce)
         {
             JumpForce = newJumpForce;
+        }
+
+        private void Update()
+        {
+            if (CanMove)
+            {
+                TimePlayed += Time.deltaTime;
+            }
         }
     }
 }
