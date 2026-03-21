@@ -39,7 +39,7 @@ namespace Environment
 
             textoTiempo.text = tiempo.ToString("F1") + "s";
 
-            float puntosFinal = Mathf.Max(0, puntos - (tiempo * 2f));
+            float puntosFinal = Mathf.Max(puntos * 0.4f, puntos - tiempo * 1f);
             int puntosFinalInt = Mathf.RoundToInt(puntosFinal);
 
             int contador = 0;
