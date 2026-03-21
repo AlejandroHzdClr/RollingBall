@@ -166,12 +166,19 @@ namespace Player
 
             if (other.CompareTag("PowerUp"))
             {
-                currentRadius = radius;
                 MassAdder adder = other.GetComponent<MassAdder>();
                 adder.AddingMass(massTypes);
-                
+
+                foreach (var col in other.GetComponentsInChildren<Collider>())
+                    col.enabled = false;
+
+                foreach (var mesh in other.GetComponentsInChildren<MeshRenderer>())
+                    mesh.enabled = false;
+
+                float currentMass = main.Rb.mass;
                 massTypes.Sort();
-                main.Rb.mass = currentRadius;
+                
+                massPosition = massTypes.IndexOf(currentMass);
             }
         }
     }
