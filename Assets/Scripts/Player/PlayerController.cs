@@ -61,6 +61,11 @@ namespace Player
                 
                 ChangeMass();
             }
+
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                Application.Quit();
+            }
         }
 
         private void ImpulseBall(bool isPressingWasd, Vector3 inputDir)
